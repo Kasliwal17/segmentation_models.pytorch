@@ -68,7 +68,13 @@ class Unet(SegmentationModel):
     ):
         super().__init__()
 
-        self.encoder = get_encoder(
+        self.encoder1 = get_encoder(
+            encoder_name,
+            in_channels=in_channels,
+            depth=encoder_depth,
+            weights=encoder_weights,
+        )
+        self.encoder2 = get_encoder(
             encoder_name,
             in_channels=in_channels,
             depth=encoder_depth,
